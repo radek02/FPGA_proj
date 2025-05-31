@@ -1,0 +1,53 @@
+Projekt: Licznik czasu w układzie FPGA z możliwością konfiguracji przez UART
+
+
+Celem projektu jest implementacja licznika czasu w formacie godziny:minuty w układzie FPGA. System oparty jest na wewnętrznym zegarze (clk) oraz wyświetlaczu 7-segmentowym zrealizowanym metodą przełączania (multiplexing) z częstotliwością odświeżania 100 Hz. Czas wyświetlany jest w postaci HH:MM, a aktualizacja przebiega w czasie rzeczywistym.
+
+Funkcjonalności:
+
+1. Wyświetlacz 7-segmentowy:
+   - Obsługa czterech cyfr (godziny i minuty).
+   - Przełączanie (multiplexing) z częstotliwością 100 Hz w celu minimalizacji migotania.
+
+2. Licznik czasu:
+   - Zliczanie minut i godzin HH:MM,
+
+3. Ustawianie czasu:
+   - Możliwość ustawienia godzin i minut za pomocą przycisków .
+   - Obsługa mechanizmu debouncingu, eliminującego drgania styków oraz wielokrotne zliczanie naciśnięcia.
+
+4. Interfejs UART z autodetekcją prędkości transmisji (ang. autobaud):
+   - Interfejs dostępny z poziomu komputera poprzez układ USB-RS232,
+   - Automatyczne wykrywanie prędkości transmisji na podstawie pierwszej komendy.
+   - Komenda: G[Enter] – zwraca aktualny czas w formacie 12:32 a także może służyc do autedetekcji transmisji (Idle=1, Bit startu=0, LSB dla G = 1)
+   - Komenda: S12:31[Enter] – ustawia czas na 12:31 i zwraca komunikat OK.
+   - Interfejs UART działa równolegle z ustawianiem czasu za pomocą przycisków – użytkownik może wybrać dowolną metodę.
+   - Komendy można wysyłać oraz odebrać z komputera przez program terminalowy, np. PuTTY poprzez urządzenie Serial /dev/ttyUSBX gdzie X to liczba (nazwę zamontowanego urządzenia można sprawdzić komendą dmesg)
+
+5. Obsługa przez Bluetooth (opcjonalnie):
+   - Możliwość podłączenia modułu PMOD Bluetooth-UART.
+   - Komunikacja przez aplikacje typu Bluetooth Terminal lub Bluetooth Serial.
+   - Umożliwia wykonywanie tych samych komend z poziomu aplikacji telefonu.
+
+
+Uwagi techniczne:
+- Implementacja sprzętowa oraz testbencha  obejmujmująca zegar z ustawianiem czasu za pomocą przycisków (bez UART) pokrywa 80% funkcjonalności systemu.
+- System umożliwia testowanie poprawności zliczania czasu oraz reakcji na ustawianie godzin i minut,
+- Możliwość zaproponowania własnego projektu.
+
+
+Prezentacja:
+Projekt powinien zostać uruchomiony i zaprezentowany prowadzącemu na rzeczywistym układzie FPGA.
+
+Raport projektowy powinien zawierać:
+- Stronę tytułową (temat, imiona i nazwiska, data),
+- Cel i założenia projektu,
+- Schemat blokowy,
+- Opis implementacji (moduły, sposób działania),
+- Zrzuty ekranów lub zdjęcia działania projektu (np. terminal UART, działający licznik),
+- Fragmenty kluczowego kodu (z komentarzami),
+- Wyniki testów lub symulacji (np. wykresy z testbencha),
+- Zajętość zasobów,
+- Wnioski końcowe i możliwe kierunki rozwoju projektu.
+
+Na temas powinien zostać wgrany raport PDF w wraz z wszystkimi plikami źródłowymi projektu.
