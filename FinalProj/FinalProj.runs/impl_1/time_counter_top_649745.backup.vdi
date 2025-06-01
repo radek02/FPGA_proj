@@ -1,16 +1,26 @@
-
-*** Running vivado
-    with args -log time_counter_top.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source time_counter_top.tcl -notrace
-
-
-****** Vivado v2024.2 (64-bit)
-  **** SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
-  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
-  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Sun Jun  1 16:59:37 2025
-    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Sun Jun  1 16:59:37 2025
+# Process ID         : 649745
+# Current directory  : /home/radek/MINI/FPGA/FinalProj/FinalProj.runs/impl_1
+# Command line       : vivado -log time_counter_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source time_counter_top.tcl -notrace
+# Log file           : /home/radek/MINI/FPGA/FinalProj/FinalProj.runs/impl_1/time_counter_top.vdi
+# Journal file       : /home/radek/MINI/FPGA/FinalProj/FinalProj.runs/impl_1/vivado.jou
+# Running On         : radek-ThinkPad-T490
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.2 LTS
+# Processor Detail   : Intel(R) Core(TM) i7-8665U CPU @ 1.90GHz
+# CPU Frequency      : 4200.400 MHz
+# CPU Physical cores : 4
+# CPU Logical cores  : 8
+# Host memory        : 16374 MB
+# Swap memory        : 4294 MB
+# Total Virtual      : 20669 MB
+# Available Virtual  : 7069 MB
+#-----------------------------------------------------------
 source time_counter_top.tcl -notrace
 Command: link_design -top time_counter_top -part xc7a35tcpg236-1
 Design is defaulting to srcset: sources_1
@@ -705,74 +715,3 @@ Wrote Device Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (M
 Write Physdb Complete: Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2950.598 ; gain = 0.000 ; free physical = 354 ; free virtual = 5108
 INFO: [Common 17-1381] The checkpoint '/home/radek/MINI/FPGA/FinalProj/FinalProj.runs/impl_1/time_counter_top_routed.dcp' has been generated.
 INFO: [Common 17-206] Exiting Vivado at Sun Jun  1 17:00:14 2025...
-
-*** Running vivado
-    with args -log time_counter_top.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source time_counter_top.tcl -notrace
-
-
-****** Vivado v2024.2 (64-bit)
-  **** SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
-  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
-  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Sun Jun  1 18:14:12 2025
-    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-
-source time_counter_top.tcl -notrace
-Command: open_checkpoint time_counter_top_routed.dcp
-INFO: [Device 21-403] Loading part xc7a35tcpg236-1
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1485.363 ; gain = 0.000 ; free physical = 1148 ; free virtual = 6110
-INFO: [Netlist 29-17] Analyzing 18 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-479] Netlist was created with Vivado 2024.2
-INFO: [Project 1-570] Preparing netlist for logic optimization
-Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1544.207 ; gain = 0.000 ; free physical = 1050 ; free virtual = 6012
-INFO: [Timing 38-478] Restoring timing data from binary archive.
-INFO: [Timing 38-479] Binary timing data restore complete.
-INFO: [Project 1-856] Restoring constraints from binary archive.
-INFO: [Project 1-853] Binary constraint restore complete.
-INFO: [Designutils 20-5722] Start Reading Physical Databases.
-Reading placement.
-Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2158.395 ; gain = 0.000 ; free physical = 497 ; free virtual = 5481
-Reading placer database...
-Read Device Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2158.395 ; gain = 0.000 ; free physical = 496 ; free virtual = 5480
-Read PlaceDB: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2158.395 ; gain = 0.000 ; free physical = 496 ; free virtual = 5480
-Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2158.395 ; gain = 0.000 ; free physical = 496 ; free virtual = 5480
-Reading routing.
-Read RouteStorage: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2158.395 ; gain = 0.000 ; free physical = 496 ; free virtual = 5480
-Read Physdb Files: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2158.395 ; gain = 0.000 ; free physical = 496 ; free virtual = 5480
-Restored from archive | CPU: 0.070000 secs | Memory: 1.433266 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.06 . Memory (MB): peak = 2158.395 ; gain = 6.938 ; free physical = 496 ; free virtual = 5480
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2158.395 ; gain = 0.000 ; free physical = 496 ; free virtual = 5480
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-INFO: [Project 1-604] Checkpoint was created with Vivado v2024.2 (64-bit) build 5239630
-WARNING: [Vivado 12-23575] Critical violations of the methodology design rules detected. Critical violations may contribute to timing failures or cause functional issues in hardware. Run report_methodology for more information.
-open_checkpoint: Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2158.395 ; gain = 773.496 ; free physical = 496 ; free virtual = 5480
-Command: write_bitstream -force time_counter_top.bit
-Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
-INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
-Running DRC as a precondition to command write_bitstream
-INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1704] No user IP repositories specified
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2024.2/data/ip'.
-INFO: [DRC 23-27] Running DRC with 8 threads
-INFO: [Vivado 12-3199] DRC finished with 0 Errors
-INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
-INFO: [Designutils 20-2272] Running write_bitstream with 8 threads.
-Loading data files...
-Loading site data...
-Loading route data...
-Processing options...
-Creating bitmap...
-Creating bitstream...
-Bitstream compression saved 14634848 bits.
-Writing bitstream ./time_counter_top.bit...
-INFO: [Vivado 12-1842] Bitgen Completed Successfully.
-INFO: [Project 1-1876] WebTalk data collection is mandatory when using a ULT device. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
-INFO: [Common 17-83] Releasing license: Implementation
-23 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
-write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 2686.250 ; gain = 527.855 ; free physical = 220 ; free virtual = 5059
-INFO: [Common 17-206] Exiting Vivado at Sun Jun  1 18:14:44 2025...

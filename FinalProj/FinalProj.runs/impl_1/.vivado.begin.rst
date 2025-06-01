@@ -23,3 +23,8 @@
     <Process Command="vivado" Owner="radek" Host="radek-ThinkPad-T490" Pid="649673" HostCore="8" HostMemory="15990632">
     </Process>
 </ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="radek" Host="radek-ThinkPad-T490" Pid="663073" HostCore="8" HostMemory="15990632">
+    </Process>
+</ProcessHandle>

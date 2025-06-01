@@ -1,0 +1,4 @@
+Running: xsim.dir/time_counter_top_behav/xsimk -simmode gui -wdb time_counter_top_behav.wdb -simrunnum 0 -socket 36837
+Design successfully loaded
+Design Loading Memory Usage: 188992 KB (Peak: 189112 KB)
+Design Loading CPU Usage: 1120 ms

@@ -1,0 +1,10 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../button_debouncer.vhd" \
+"../../../../../clock_divider.vhd" \
+"../../../../../seven_segment_display.vhd" \
+"../../../../../time_counter.vhd" \
+"../../../../../time_counter_top.vhd" \
+
+# Do not sort compile order
+nosort
