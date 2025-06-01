@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Sun Jun  1 16:59:37 2025
+# Process ID         : 649745
+# Current directory  : /home/radek/MINI/FPGA/FinalProj/FinalProj.runs/impl_1
+# Command line       : vivado -log time_counter_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source time_counter_top.tcl -notrace
+# Log file           : /home/radek/MINI/FPGA/FinalProj/FinalProj.runs/impl_1/time_counter_top.vdi
+# Journal file       : /home/radek/MINI/FPGA/FinalProj/FinalProj.runs/impl_1/vivado.jou
+# Running On         : radek-ThinkPad-T490
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.2 LTS
+# Processor Detail   : Intel(R) Core(TM) i7-8665U CPU @ 1.90GHz
+# CPU Frequency      : 4200.400 MHz
+# CPU Physical cores : 4
+# CPU Logical cores  : 8
+# Host memory        : 16374 MB
+# Swap memory        : 4294 MB
+# Total Virtual      : 20669 MB
+# Available Virtual  : 7069 MB
+#-----------------------------------------------------------
+source time_counter_top.tcl -notrace

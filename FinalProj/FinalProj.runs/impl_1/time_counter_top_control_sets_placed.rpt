@@ -1,0 +1,95 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Sun Jun  1 16:59:56 2025
+| Host         : radek-ThinkPad-T490 running 64-bit Ubuntu 24.04.2 LTS
+| Command      : report_control_sets -verbose -file time_counter_top_control_sets_placed.rpt
+| Design       : time_counter_top
+| Device       : xc7a35t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    17 |
+|    Minimum number of control sets                        |    17 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    65 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    17 |
+| >= 0 to < 4        |     3 |
+| >= 4 to < 6        |     7 |
+| >= 6 to < 8        |     2 |
+| >= 8 to < 10       |     1 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     4 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              25 |           10 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              73 |           22 |
+| Yes          | No                    | No                     |               4 |            1 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              41 |           12 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-----------------------------------+----------------------------------------------+----------------------------------------------+------------------+----------------+--------------+
+|            Clock Signal           |                 Enable Signal                |               Set/Reset Signal               | Slice Load Count | Bel Load Count | Bels / Slice |
++-----------------------------------+----------------------------------------------+----------------------------------------------+------------------+----------------+--------------+
+|  btn_sync_reg[2]_i_1_n_0          |                                              | debouncer_hours_up/clear                     |                1 |              1 |         1.00 |
+|  clk_div_inst/clk_100hz_int_reg_0 |                                              |                                              |                1 |              2 |         2.00 |
+|  CLK_IBUF_BUFG                    |                                              |                                              |                3 |              3 |         1.00 |
+|  btn_sync_reg[2]_i_1_n_0          | debouncer_hours_up/counter[3]_i_2_n_0        | debouncer_hours_up/clear                     |                1 |              4 |         4.00 |
+|  clk_div_inst/clk_1hz_int_reg_0   | debouncer_reset/btn_stable_reg_0             |                                              |                1 |              4 |         4.00 |
+|  btn_sync_reg[2]_i_1_n_0          | debouncer_hours_down/counter[4]_i_2_n_0      | debouncer_hours_down/counter[4]_i_1_n_0      |                1 |              5 |         5.00 |
+|  btn_sync_reg[2]_i_1_n_0          | debouncer_minutes_down/counter[4]_i_2__1_n_0 | debouncer_minutes_down/counter[4]_i_1__1_n_0 |                1 |              5 |         5.00 |
+|  btn_sync_reg[2]_i_1_n_0          | debouncer_minutes_up/counter[4]_i_2__0_n_0   | debouncer_minutes_up/counter[4]_i_1__0_n_0   |                1 |              5 |         5.00 |
+|  btn_sync_reg[2]_i_1_n_0          | debouncer_reset/counter[4]_i_2__2_n_0        | debouncer_reset/counter[4]_i_1__2_n_0        |                1 |              5 |         5.00 |
+|  clk_div_inst/clk_1hz_int_reg_0   | time_counter_inst/hours_reg[4]_i_1_n_0       | debouncer_reset/SR[0]                        |                1 |              5 |         5.00 |
+|  clk_div_inst/clk_1hz_int_reg_0   | debouncer_hours_up/E[0]                      | debouncer_reset/SR[0]                        |                2 |              6 |         3.00 |
+|  clk_div_inst/clk_1hz_int_reg_0   | time_counter_inst/minutes_reg[5]_i_1_n_0     | debouncer_reset/SR[0]                        |                4 |              6 |         1.50 |
+|  clk_div_inst/clk_100hz_int_reg_0 |                                              | seven_seg_inst/digit_select_0                |                3 |              8 |         2.67 |
+|  CLK_IBUF_BUFG                    |                                              | clk_div_inst/clk_1khz_int                    |                5 |             17 |         3.40 |
+|  CLK_IBUF_BUFG                    |                                              | clk_div_inst/clk_100hz_int                   |                6 |             20 |         3.33 |
+|  btn_sync_reg[2]_i_1_n_0          |                                              |                                              |                6 |             20 |         3.33 |
+|  CLK_IBUF_BUFG                    |                                              | clk_div_inst/clk_1hz_int                     |                7 |             27 |         3.86 |
++-----------------------------------+----------------------------------------------+----------------------------------------------+------------------+----------------+--------------+
+
+
