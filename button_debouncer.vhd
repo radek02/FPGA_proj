@@ -1,4 +1,3 @@
--- filepath: /home/radek/MINI/FPGA/final_proj/src/button_debouncer.vhd
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;

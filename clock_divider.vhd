@@ -1,4 +1,3 @@
--- filepath: /home/radek/MINI/FPGA/final_proj/src/clock_divider.vhd
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
@@ -15,7 +14,6 @@ end clock_divider;
 architecture Behavioral of clock_divider is
     constant CLK_FREQ : integer := 100000000; -- 100MHz
     
-    -- Liczniki dla różnych częstotliwości
     signal counter_1hz : integer range 0 to CLK_FREQ-1 := 0;
     signal counter_100hz : integer range 0 to (CLK_FREQ/100)-1 := 0;
     signal counter_1khz : integer range 0 to (CLK_FREQ/1000)-1 := 0;

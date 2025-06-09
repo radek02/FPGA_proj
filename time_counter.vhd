@@ -1,4 +1,3 @@
--- filepath: /home/radek/MINI/FPGA/final_proj/src/time_counter.vhd
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
@@ -35,7 +34,7 @@ begin
                 minutes_reg <= 0;
                 seconds_reg <= 0;
             else
-                -- Obsługa przycisków (wykrywanie zbocza narastającego)
+                -- Obsługa przycisków
                 if hours_up = '1' and hours_up_prev = '0' then
                     if hours_reg = 23 then
                         hours_reg <= 0;
@@ -68,7 +67,6 @@ begin
                     end if;
                 end if;
                 
-                -- Automatyczne zliczanie czasu
                 if hours_up = '0' and hours_down = '0' and minutes_up = '0' and minutes_down = '0' then
                     if seconds_reg = 59 then
                         seconds_reg <= 0;
@@ -87,7 +85,6 @@ begin
                     end if;
                 end if;
                 
-                -- Zapamiętanie poprzednich stanów przycisków
                 hours_up_prev <= hours_up;
                 hours_down_prev <= hours_down;
                 minutes_up_prev <= minutes_up;

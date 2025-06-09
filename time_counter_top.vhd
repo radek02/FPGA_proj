@@ -1,4 +1,3 @@
--- filepath: /home/radek/MINI/FPGA/final_proj/src/time_counter_top.vhd
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
@@ -7,15 +6,13 @@ entity time_counter_top is
     Port ( 
         CLK : in STD_LOGIC;
         BTN : in STD_LOGIC_VECTOR(4 downto 0);
-        SW : in STD_LOGIC_VECTOR(15 downto 0);
-        LED : out STD_LOGIC_VECTOR(15 downto 0);
         SSEG_CA : out STD_LOGIC_VECTOR(7 downto 0);
         SSEG_AN : out STD_LOGIC_VECTOR(3 downto 0)
     );
 end time_counter_top;
 
 architecture Behavioral of time_counter_top is
-    -- Sygnały wewnętrzne
+    -- Internal signals
     signal clk_1hz : STD_LOGIC;
     signal clk_100hz : STD_LOGIC;
     signal clk_1khz : STD_LOGIC;
@@ -31,7 +28,7 @@ architecture Behavioral of time_counter_top is
     
     signal display_data : STD_LOGIC_VECTOR(15 downto 0);
     
-    -- Komponenty
+    -- Components
     component clock_divider is
         Port (
             clk_in : in STD_LOGIC;
@@ -73,7 +70,6 @@ architecture Behavioral of time_counter_top is
     end component;
     
 begin
-    -- Instancja dzielnika zegara
     clk_div_inst : clock_divider
         port map (
             clk_in => CLK,
@@ -82,7 +78,6 @@ begin
             clk_1khz => clk_1khz
         );
     
-    -- Instancje debouncerów dla przycisków
     debouncer_hours_up : button_debouncer
         port map (
             clk => clk_1khz,
@@ -118,7 +113,6 @@ begin
             btn_out => btn_reset_db
         );
     
-    -- Instancja licznika czasu
     time_counter_inst : time_counter
         port map (
             clk => clk_1hz,
@@ -131,7 +125,6 @@ begin
             minutes_out => minutes
         );
     
-    -- Instancja wyświetlacza 7-segmentowego
     seven_seg_inst : seven_segment_display
         port map (
             clk => clk_100hz,
@@ -140,11 +133,5 @@ begin
             sseg_ca => SSEG_CA,
             sseg_an => SSEG_AN
         );
-    
-    -- Wyświetlanie aktualnego czasu na LED-ach (opcjonalne)
-    LED(15 downto 12) <= std_logic_vector(to_unsigned(hours / 10, 4));
-    LED(11 downto 8) <= std_logic_vector(to_unsigned(hours mod 10, 4));
-    LED(7 downto 4) <= std_logic_vector(to_unsigned(minutes / 10, 4));
-    LED(3 downto 0) <= std_logic_vector(to_unsigned(minutes mod 10, 4));
 
 end Behavioral;

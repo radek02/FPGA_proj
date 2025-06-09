@@ -1,4 +1,3 @@
--- filepath: /home/radek/MINI/FPGA/final_proj/src/seven_segment_display.vhd
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
@@ -15,7 +14,6 @@ end seven_segment_display;
 
 architecture Behavioral of seven_segment_display is
     signal digit_select : STD_LOGIC_VECTOR(1 downto 0) := "00";
-    signal counter : integer range 0 to 249 := 0; -- Dla 100Hz przy 25kHz
     signal current_digit : integer range 0 to 9;
     
     -- Funkcja konwersji cyfry na kod 7-segmentowy (wspólna anoda)
@@ -41,12 +39,7 @@ begin
     process(clk)
     begin
         if rising_edge(clk) then
-            if counter = 249 then -- Przełączanie co 2.5ms (przy 100Hz clk)
-                counter <= 0;
-                digit_select <= std_logic_vector(unsigned(digit_select) + 1);
-            else
-                counter <= counter + 1;
-            end if;
+            digit_select <= std_logic_vector(unsigned(digit_select) + 1);
         end if;
     end process;
     
@@ -72,7 +65,6 @@ begin
         end case;
     end process;
     
-    -- Kodowanie cyfry na wyświetlacz
     sseg_ca <= digit_to_sseg(current_digit);
 
 end Behavioral;
