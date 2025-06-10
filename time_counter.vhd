@@ -36,52 +36,28 @@ begin
             else
                 -- Obsługa przycisków
                 if hours_up = '1' and hours_up_prev = '0' then
-                    if hours_reg = 23 then
-                        hours_reg <= 0;
-                    else
-                        hours_reg <= hours_reg + 1;
-                    end if;
+                    hours_reg <= (hours_reg + 1) mod 24;
                 end if;
                 
                 if hours_down = '1' and hours_down_prev = '0' then
-                    if hours_reg = 0 then
-                        hours_reg <= 23;
-                    else
-                        hours_reg <= hours_reg - 1;
-                    end if;
+                    hours_reg <= (hours_reg - 1) mod 24;
                 end if;
                 
                 if minutes_up = '1' and minutes_up_prev = '0' then
-                    if minutes_reg = 59 then
-                        minutes_reg <= 0;
-                    else
-                        minutes_reg <= minutes_reg + 1;
-                    end if;
+                    minutes_reg <= (minutes_reg + 1) mod 60;
                 end if;
                 
                 if minutes_down = '1' and minutes_down_prev = '0' then
-                    if minutes_reg = 0 then
-                        minutes_reg <= 59;
-                    else
-                        minutes_reg <= minutes_reg - 1;
-                    end if;
+                    minutes_reg <= (minutes_reg - 1) mod 60;
                 end if;
                 
                 if hours_up = '0' and hours_down = '0' and minutes_up = '0' and minutes_down = '0' then
-                    if seconds_reg = 59 then
-                        seconds_reg <= 0;
-                        if minutes_reg = 59 then
-                            minutes_reg <= 0;
-                            if hours_reg = 23 then
-                                hours_reg <= 0;
-                            else
-                                hours_reg <= hours_reg + 1;
-                            end if;
-                        else
-                            minutes_reg <= minutes_reg + 1;
+                    seconds_reg <= (seconds_reg + 1) mod 60;
+                    if seconds_reg = 0 then
+                        minutes_reg <= (minutes_reg + 1) mod 60;
+                        if minutes_reg = 0 then
+                            hours_reg <= (hours_reg + 1) mod 24;
                         end if;
-                    else
-                        seconds_reg <= seconds_reg + 1;
                     end if;
                 end if;
                 
