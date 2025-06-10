@@ -4,14 +4,14 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity button_debouncer is
     Port (
-        clk : in STD_LOGIC;
+        clk : in STD_LOGIC; -- 1kHz
         btn_in : in STD_LOGIC;
         btn_out : out STD_LOGIC
     );
 end button_debouncer;
 
 architecture Behavioral of button_debouncer is
-    constant DEBOUNCE_TIME : integer := 20; -- 20ms przy 1kHz
+    constant DEBOUNCE_TIME : integer := 10; -- 10ms przy 1kHz
     signal counter : integer range 0 to DEBOUNCE_TIME := 0;
     signal btn_sync : STD_LOGIC_VECTOR(2 downto 0) := "000";
     signal btn_stable : STD_LOGIC := '0';
