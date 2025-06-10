@@ -6,7 +6,8 @@ entity time_counter_top is
         CLK : in STD_LOGIC;
         BTN : in STD_LOGIC_VECTOR(4 downto 0);
         SSEG_CA : out STD_LOGIC_VECTOR(7 downto 0);
-        SSEG_AN : out STD_LOGIC_VECTOR(3 downto 0)
+        SSEG_AN : out STD_LOGIC_VECTOR(3 downto 0);
+        LED : out STD_LOGIC_VECTOR(5 downto 0)
     );
 end time_counter_top;
 
@@ -18,6 +19,7 @@ architecture Behavioral of time_counter_top is
     
     signal hours : INTEGER range 0 to 23 := 0;
     signal minutes : INTEGER range 0 to 59 := 0;
+    signal seconds : INTEGER range 0 to 59 := 0;
     
     signal btn_hours_up_db : STD_LOGIC;
     signal btn_hours_down_db : STD_LOGIC;
@@ -47,7 +49,8 @@ architecture Behavioral of time_counter_top is
             minutes_up : in STD_LOGIC;
             minutes_down : in STD_LOGIC;
             hours_out : out INTEGER range 0 to 23;
-            minutes_out : out INTEGER range 0 to 59
+            minutes_out : out INTEGER range 0 to 59;
+            seconds_out : out INTEGER range 0 to 59
         );
     end component;
     
@@ -70,6 +73,7 @@ architecture Behavioral of time_counter_top is
     end component;
     
 begin
+
     clk_div_inst : clock_divider
         port map (
             clk_in => CLK,
@@ -123,7 +127,8 @@ begin
             minutes_up => btn_minutes_up_db,
             minutes_down => btn_minutes_down_db,
             hours_out => hours,
-            minutes_out => minutes
+            minutes_out => minutes,
+            seconds_out => seconds
         );
     
     seven_seg_inst : seven_segment_display
@@ -134,5 +139,7 @@ begin
             sseg_ca => SSEG_CA,
             sseg_an => SSEG_AN
         );
+
+    LED(5 downto 0) <= std_logic_vector(to_unsigned(seconds, 6));
 
 end Behavioral;

@@ -13,6 +13,7 @@ entity time_counter is
         minutes_down : in STD_LOGIC;
         hours_out : out INTEGER range 0 to 23;
         minutes_out : out INTEGER range 0 to 59
+        seconds_out : out INTEGER range 0 to 59
     );
 end time_counter;
 
@@ -77,5 +78,6 @@ begin
     
     hours_out <= hours_reg;
     minutes_out <= minutes_reg;
+    seconds_out <= seconds_reg;
 
 end Behavioral;
