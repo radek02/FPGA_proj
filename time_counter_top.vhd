@@ -1,7 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-
 entity time_counter_top is
     Port ( 
         CLK : in STD_LOGIC;
@@ -115,7 +114,7 @@ begin
     
     time_counter_inst : time_counter
         port map (
-            clk => clk_1hz,
+            clk => CLK,
             reset => btn_reset_db,
             hours_up => btn_hours_up_db,
             hours_down => btn_hours_down_db,

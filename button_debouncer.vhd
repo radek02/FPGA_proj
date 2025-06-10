@@ -20,10 +20,8 @@ begin
     process(clk)
     begin
         if rising_edge(clk) then
-            -- Synchronizacja wejścia
             btn_sync <= btn_sync(1 downto 0) & btn_in;
             
-            -- Jeśli przycisk jest stabilny
             if btn_sync(2) = btn_sync(1) then
                 if counter = DEBOUNCE_TIME then
                     btn_stable <= btn_sync(2);
