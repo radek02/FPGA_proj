@@ -28,7 +28,7 @@ architecture Behavioral of time_counter is
     signal minutes_down_prev : STD_LOGIC := '0';
 begin
 
-    process(clk_fast)
+    process(clk_1hz, clk_fast)
     begin
         if rising_edge(clk_fast) then
             if reset = '1' then
@@ -36,7 +36,6 @@ begin
                 minutes_reg <= 0;
                 seconds_reg <= 0;
             else
-                -- Obsługa przycisków
                 if hours_up = '1' and hours_up_prev = '0' then
                     hours_reg <= (hours_reg + 1) mod 24;
                 end if;
@@ -59,10 +58,7 @@ begin
             minutes_up_prev <= minutes_up;
             minutes_down_prev <= minutes_down;
         end if;
-    end process;
 
-    process(clk_1hz)
-    begin
         if rising_edge(clk_1hz) then      
             if hours_up = '0' and hours_down = '0' and minutes_up = '0' and minutes_down = '0' then
                 seconds_reg <= (seconds_reg + 1) mod 60;
