@@ -39,7 +39,8 @@ architecture Behavioral of time_counter_top is
     
     component time_counter is
         Port (
-            clk : in STD_LOGIC;
+            clk_1hz : in STD_LOGIC;
+            clk_fast : in STD_LOGIC;
             reset : in STD_LOGIC;
             hours_up : in STD_LOGIC;
             hours_down : in STD_LOGIC;
@@ -114,7 +115,8 @@ begin
     
     time_counter_inst : time_counter
         port map (
-            clk => clk_1hz,
+            clk_1hz => clk_1hz,
+            clk_fast => clk_100hz,
             reset => btn_reset_db,
             hours_up => btn_hours_up_db,
             hours_down => btn_hours_down_db,
