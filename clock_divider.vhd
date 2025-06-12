@@ -12,7 +12,7 @@ entity clock_divider is
 end clock_divider;
 
 architecture Behavioral of clock_divider is
-    constant CLK_FREQ : integer := 100000000; -- 100MHz
+    constant CLK_FREQ : integer := 100000000/2; -- 100MHz
     
     signal counter_1hz : integer range 0 to CLK_FREQ-1 := 0;
     signal counter_100hz : integer range 0 to (CLK_FREQ/100)-1 := 0;

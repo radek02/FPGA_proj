@@ -131,7 +131,7 @@ begin
     
     seven_seg_inst : seven_segment_display
         port map (
-            clk => clk_100hz,
+            clk => clk_1khz,
             hours => hours,
             minutes => minutes,
             sseg_ca => SSEG_CA,
