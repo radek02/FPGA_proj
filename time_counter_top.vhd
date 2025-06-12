@@ -119,8 +119,7 @@ begin
     
     time_counter_inst : time_counter
         port map (
-            clk_1hz => clk_1hz,
-            clk_fast => clk_100hz,
+            clk_100hz => clk_100hz,
             reset => btn_reset_db,
             hours_up => btn_hours_up_db,
             hours_down => btn_hours_down_db,

@@ -4,8 +4,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity time_counter is
     Port (
-        clk_1hz : in STD_LOGIC; -- 1Hz
-        clk_fast : in STD_LOGIC; -- 100Hz
+        clk_100hz : in STD_LOGIC; -- 100Hz
         reset : in STD_LOGIC;
         hours_up : in STD_LOGIC;
         hours_down : in STD_LOGIC;
@@ -18,6 +17,9 @@ entity time_counter is
 end time_counter;
 
 architecture Behavioral of time_counter is
+    constant CLK_FREQ : integer := 100; -- 100Hz
+    signal counter_100hz : integer range 0 to CLK_FREQ-1 := 0;
+
     signal hours_reg : INTEGER range 0 to 23 := 0;
     signal minutes_reg : INTEGER range 0 to 59 := 0;
     signal seconds_reg : INTEGER range 0 to 59 := 0;
@@ -28,9 +30,9 @@ architecture Behavioral of time_counter is
     signal minutes_down_prev : STD_LOGIC := '0';
 begin
 
-    process(clk_1hz, clk_fast)
+    process(clk_100hz)
     begin
-        if rising_edge(clk_fast) then
+        if rising_edge(clk_100hz) then
             if reset = '1' then
                 hours_reg <= 0;
                 minutes_reg <= 0;
@@ -59,7 +61,8 @@ begin
             minutes_down_prev <= minutes_down;
         end if;
 
-        if rising_edge(clk_1hz) then      
+        if counter_100hz = CLK_FREQ - 1 then
+            counter_100hz <= 0;
             if hours_up = '0' and hours_down = '0' and minutes_up = '0' and minutes_down = '0' then
                 seconds_reg <= (seconds_reg + 1) mod 60;
                 if seconds_reg = 0 then
@@ -69,6 +72,8 @@ begin
                     end if;
                 end if;
             end if;
+        else
+            counter_100hz <= counter_100hz + 1;
         end if;
     end process;
     
